@@ -1,0 +1,79 @@
+import viajes.*
+import socios.*
+
+
+describe "Test Viajes" {
+
+		const playa = new Playa()
+		const ciudad = new ExcursionCiudad()
+		const excursionTropical = new ExcursionTropical()
+		const trek = new Trekking()
+		const socioRelajado = new SocioRelajado()
+		const socio = new Socio()
+		
+fixture {
+			playa.idiomaDelViaje("Ingles")
+			playa.idiomaDelViaje("Portugues")
+			playa.largoPlaya(1000)
+			ciudad.idiomaDelViaje("Espaniol")
+			ciudad.cantidadAtracciones(5)
+			trek.idiomaDelViaje("Ingles")
+			trek.idiomaDelViaje("Portugues")
+			socioRelajado.agregarActividad(playa) 
+			
+		}
+
+		test "Idiomas del viaje Playa" {
+			assert.equals(["Ingles", "Portugues"], playa.idiomasQueSeUsa())
+		}
+//		
+//		test "Implica Esfuerzo Playa" {
+//		
+//			assert.notThat(playa.implicaEsfuerzo())
+//		}
+//		
+//		test "Broncearse Playa" {
+//			assert.that(playa.sirveBroncearse())
+//		}
+//		test "Dias de Actividad Playa" {
+//			assert.equals(2,playa.diasActividad())
+//		}
+//		
+//		test "Idiomas del viaje ExcursionCiudad" {
+//			assert.equals(["Espaniol"], ciudad.idiomasQueSeUsa())
+//		}
+//		test "Implica Esfuerzo Excursion Ciudad" {
+//			assert.that(ciudad.implicaEsfuerzo())
+//		}
+//		test "Broncearse Ciudad" {
+//			assert.notThat(ciudad.sirveBroncearse())
+//		}
+//		test "Dias de Actividad Excursion Ciudad" {
+//			assert.equals(3,ciudad.diasActividad())
+//		}
+//		test "Dias de Actividad Excursion Tropical" {
+//			assert.equals(3,excursionTropical.diasActividad())
+//		}
+//		test "Broncearse Excursion Tropical" {
+//			assert.that(excursionTropical.sirveBroncearse())
+//		}
+		
+		test "viaje Interesante Playa" {
+			assert.that(playa.viajeInteresante())
+		}
+		test "Viaje interesante Ciudad"{
+			assert.that(ciudad.viajeInteresante())
+		}
+		
+		test "Viaje interesante trekking"{
+			trek.diasDeSolXanio(150)
+			assert.that(trek.viajeInteresante())
+		}
+		test "Actividades que le atraen a cada socio"{ 
+		
+		socioRelajado.agregarIdiomaSocio("Ingles")
+		socioRelajado.agregarIdiomaSocio("Frances")
+		
+		assert.that(socioRelajado.actividadQueLeAtrae(playa))
+		}		
+}
