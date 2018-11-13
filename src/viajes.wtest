@@ -24,7 +24,7 @@ fixture {
 		}
 
 		test "Idiomas del viaje Playa" {
-			assert.equals(["Ingles", "Portugues"], playa.idiomasQueSeUsa())
+			assert.equals(#{"Ingles", "Portugues"}, playa.idiomasQueSeUsa())
 		}
 //		
 //		test "Implica Esfuerzo Playa" {

@@ -57,5 +57,5 @@ class SocioCoherente inherits Socio {
 class SocioRelajado inherits Socio {
 
 	override method actividadQueLeAtrae(activ) {
-		return (activ.idiomasQueSeUsa().intersection(self.idiomasQueHablan()).size() > 0)}
+		return (activ.idiomasQueSeUsa().intersection(idiomaQueHabla).size() > 0)}
 }

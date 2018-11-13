@@ -8,8 +8,7 @@ class Viaje {
 	}
 	
 	method idiomasQueSeUsa(){
-		return idiomasDelViaje.asList()
-	}
+		return idiomasDelViaje	}
 	
 	 method viajeInteresante(){
 	 	idiomasDelViaje.size()>2 return true
